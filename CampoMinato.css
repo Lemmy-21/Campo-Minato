@@ -1,0 +1,18 @@
+.center{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table{
+  background-color: rgb(189, 189, 189);
+  color: rgb(126, 1, 1);
+  border: 2px solid;
+}
+
+
+
+td{
+  border: 1px solid rgb(52, 51, 51);
+  padding: 4px;
+  background-color: gray;
+}
