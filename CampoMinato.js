@@ -52,20 +52,31 @@ window.onload = function generateField () {
   for(let i = 0; i < height; i++){
     strRiga = `<tr><td xId = 0 yId = ${i}`;
     if(0 in arrBombXs && i == arrBombYs[arrBombXs.indexOf(0)]){strRiga += `>O</td>`}
-    else {strRiga += `> </td>`}
+    else {strRiga += `>X</td>`}
 
     for(let j = 1; j < width; j++){
-      
       strRiga += `<td xId = ${j} yId = ${i}`;
-      if(j in arrBombXs || i in arrBombYs){
-        if (arrBombXs[arrBombYs.indexOf(i)] == j || arrBombYs[arrBombXs.indexOf(j)] == i){   
-          strRiga += `>O</td>`;
-          counter++;
+
+      if(j in arrBombXs && i in arrBombYs){
+        let bombGenerated = false
+        for (j in arrBombXs){
+          for (i in arrBombYs){
+
+            if(arrBombXs[arrBombYs.indexOf(i)] == j){
+              strRiga += `>O</td>`;
+              counter++;
+              bombGenerated = true;
+            }
+
+          }
         }
-        else{strRiga +=`> </td>`}
+        if(bombGenerated == false){strRiga +=`>X</td>`}
+
       }
-      else{strRiga +=`> </td>`}
+      else{strRiga +=`>X</td>`}
+
       }
+
     strRiga += "</tr>";
     t.innerHTML += strRiga;
   }
@@ -76,3 +87,4 @@ window.onload = function generateField () {
 
 
 
+/*  http://birrell.org/andrew/minesweeper/   */
